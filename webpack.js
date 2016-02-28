@@ -56,8 +56,8 @@ module.exports = config => {
       publicPath: publicPath,
       progress: true,
       colors: true,
-      contentBase: './dist/',
-      inline: true,
+      contentBase: './src/',
+      inline: false,
       hot: false
     }
   };
