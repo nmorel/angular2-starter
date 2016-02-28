@@ -47,6 +47,9 @@ module.exports = config => {
       new ExtractTextPlugin(cssFilename),
       new HtmlWebpackPlugin({
         template: 'src/index.html'
+      }),
+      new webpack.DefinePlugin({
+        ENVIRONMENT: JSON.stringify(config.prod ? 'production' : 'development')
       })
     ],
     resolve: {
