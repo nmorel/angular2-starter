@@ -1,10 +1,10 @@
 export class Greeter {
-  say(greeting, name) {
+  say(greeting: string, name: string) {
     const capitalized = this._capitalize(greeting);
     return `${capitalized}, ${name}!`
   }
 
-  _capitalize(str) {
+  _capitalize(str: string) {
     if (str) {
       return str.replace(/^(.)/, (c) => c.toUpperCase());
     } else {

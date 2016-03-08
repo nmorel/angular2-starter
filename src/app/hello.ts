@@ -8,6 +8,8 @@ import {Greeter} from './services';
   viewProviders: [Greeter]
 })
 export class Hello {
+  message: string;
+
   constructor(greeter:Greeter) {
     this.message = greeter.say('hello', 'Angular 2');
   }

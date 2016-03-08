@@ -1,4 +1,22 @@
+#---------------------------------
+# Directories
+#---------------------------------
+**/node_modules/
+dist/
+typings/*.d.ts
+typings/browser/
+typings/main/
+
+#---------------------------------
+# IDE generated
+#---------------------------------
+.idea/
+.project
 *.iml
-/.idea
-/node_modules
-/dist
+
+#---------------------------------
+# OS generated
+#---------------------------------
+__MACOSX/
+.DS_Store
+Thumbs.db

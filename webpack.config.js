@@ -11,20 +11,15 @@ module.exports = config => {
 
   const result = {
     entry: {
-      app: './src/index.js'
+      app: './src/index.ts'
     },
     devtool: config.prod ? 'source-map' : 'cheap-module-eval-source-map',
     module: {
       loaders: [
         {
-          test: /\.js$/,
-          exclude: [/node_modules/],
-          loader: 'babel',
-          query: {
-            cacheDirectory: true,
-            presets: ['es2015'],
-            plugins: ['angular2-annotations', 'transform-class-properties', 'transform-decorators-legacy', 'transform-flow-strip-types']
-          }
+          test: /\.ts/,
+          exclude: [/\.spec\.ts$/, /node_modules/],
+          loader: 'ts'
         },
         {
           test: /\.(png|jpg|ico|svg|eot|ttf|woff)$/,
@@ -36,6 +31,9 @@ module.exports = config => {
           exclude: [/node_modules/],
           loader: ExtractTextPlugin.extract('css?modules!autoprefixer?browsers=last 2 versions!sass')
         }
+      ],
+      noParse: [
+        /angular2\/bundles\/.+/
       ]
     },
     output: {
@@ -49,11 +47,13 @@ module.exports = config => {
         template: 'src/index.html'
       }),
       new webpack.DefinePlugin({
-        ENVIRONMENT: JSON.stringify(config.prod ? 'production' : 'development')
+        'process.env.NODE_ENV': JSON.stringify(config.prod ? 'production' : 'development')
       })
     ],
     resolve: {
-      modulesDirectories: ['.', './node_modules']
+      extensions: ['', '.ts', '.js'],
+      modulesDirectories: ['node_modules'],
+      root: path.resolve('./src')
     },
     devServer: {
       publicPath: publicPath,

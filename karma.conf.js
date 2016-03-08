@@ -1,8 +1,4 @@
 // Karma configuration
-const webpackConfig = require('./webpack')({
-  prod: false
-});
-
 module.exports = function(config) {
   config.set({
 
@@ -15,7 +11,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/index.spec.js'
+      'node_modules/es6-shim/es6-shim.min.js',
+      'karma.entry.js'
     ],
 
     // list of files to exclude
@@ -25,10 +22,10 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/index.spec.js': ['webpack', 'sourcemap']
+      'karma.entry.js': ['webpack', 'sourcemap']
     },
 
-    webpack: webpackConfig,
+    webpack: require('./webpack.test'),
 
     webpackServer: { noInfo: true },
 
