@@ -1,6 +1,4 @@
 {
-  "version": "1.8.7",
-
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -9,10 +7,11 @@
     "sourceMap": true,
     "target": "es5"
   },
-
   "files": [
-    "src/index.ts",
     "typings/browser.d.ts",
     "node_modules/angular2/typings/browser.d.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts"
   ]
 }

@@ -20,3 +20,8 @@ typings/main/
 __MACOSX/
 .DS_Store
 Thumbs.db
+
+#---------------------------------
+# Other
+#---------------------------------
+npm-debug.log

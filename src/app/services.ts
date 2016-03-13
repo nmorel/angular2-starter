@@ -1,7 +1,7 @@
 export class Greeter {
   say(greeting: string, name: string) {
     const capitalized = this._capitalize(greeting);
-    return `${capitalized}, ${name}!`
+    return `${capitalized}, ${name}!`;
   }
 
   _capitalize(str: string) {
